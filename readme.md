@@ -6,6 +6,21 @@ The design pattern followed her is MVC(Models,Views and Controller), as this onl
 Models
 1) Customer model which contains detail about customer.
 2) Purchase model which contains detail about purchases of the customer.
+
+Rest APIs Created
+
+1) POST /customer/signup => To signup new customer based on email,name,password
+
+2) POST /customer/login => To login customer and get the auth token
+
+3) POST /purchase => To create a new purchase order
+
+4) POST /purchases => To fetch the list of purchases of customer with filter and sorting.
+
+5) GET /purchase?id= => To fetch purchase by the given id
+
+For reference postman apis exported as json has been attached which give holistic view of apis.
+
 --------------------------------------------------------
 
 ## Setup steps
@@ -54,16 +69,18 @@ Note**
 
 ## What left to do
 
-1 Currently the auth tokens are being saved in mongodb and token is fetched for each api call, which is not the best option, use of session store on caching techniques should be done in order to reduce latency. 
+1 Currently the auth tokens are being saved in mongodb and token is fetched for each api call, which is not the best option, use of session store on caching techniques should be done in order to reduce latency.
 
-2 Adding more filter parameters and conditions like $gt,$lt,$eq or more and even cross filters functionality like $or,$and.
+2 Adding unique to creation of customers to identify each customer and track its purchase.
 
-3 Adding more sorting parameters. 
+3 Adding more filter parameters and conditions like $gt,$lt,$eq or more and even cross filters functionality like $or,$and.
 
-4 Creating Indexes in mongodb for faster query response based on the read pattern of usage.
+4 Adding more sorting parameters. 
 
-5 New APIs from the data can be created like the total purchase by brand and a reward can be calculated based on that.
+5 Creating Indexes in mongodb for faster query response based on the read pattern of usage.
 
-5 Dockerizing the application.
+6 New APIs from the data can be created like the total purchase by brand and a reward can be calculated based on that.
 
-6 Proper logging with help of modules like winston and request id to trace down each and every request.
+7 Dockerizing the application and deploying on cloud like heroku, aws or any other.
+
+8 Proper logging with help of modules like winston and request id to trace down each and every request.
