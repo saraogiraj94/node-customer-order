@@ -10,7 +10,7 @@ router.post("/purchase", Purchase.save);
 /**
  * Get List of purchases
  */
-router.get("/purchases", Purchase.getAllOrders);
+router.post("/purchases", Purchase.getAllOrders);
 
 /**
  * Get Single Purchase by id
