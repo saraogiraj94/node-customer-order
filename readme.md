@@ -42,6 +42,7 @@ For Running Test Cases
 
 
 For Running in dev env with the use of nodemon
+
 6 npm run dev
 
 
@@ -49,7 +50,7 @@ Note**
 
 1 Before installing you need to have Nodejs and npm install.
 
-2 You can use the official docker image of mongodb and start that in docker container by using the command 'docker pull mongo'. 
+2 You can use the official docker image ('docker pull mongo') of mongodb and start that in docker container.
 
 --------------------------------------------------------
 
