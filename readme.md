@@ -14,13 +14,17 @@ Models
 2 Clone the repository.
 
 For installing all the dependencies inside package json
+
 3 npm install
 
 For Starting the app
+
 4 npm start
 
 For Running Test Cases
+
 5 npm test
+
 
 For Running in dev env with the use of nodemon
 6 npm run dev
