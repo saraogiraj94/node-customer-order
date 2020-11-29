@@ -1,0 +1,151 @@
+{
+	"info": {
+		"_postman_id": "e1869d28-82fa-4884-8221-a0172d3a039f",
+		"name": "CustomerPOTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000",
+					"host": [
+						"localhost"
+					],
+					"port": "3000"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"abc@asd.com\",\n    \"password\":\"Raj13243243\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/customer/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"customer",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Purchase",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \n}"
+				},
+				"url": {
+					"raw": "localhost:3000/purchase",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"purchase"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Purchase By Id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmMyNDkxNTQ2NjBjMDMyYjcwZDQzZmUiLCJpYXQiOjE2MDY1NzI1ODh9.M6GQCYCEi4TnnGmIpxpZoLUXCxAxEMALuv9BMidQ0ac",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/purchase/?id=5fc257c08e08f03c26e15a31",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"purchase",
+						""
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "5fc257c08e08f03c26e15a31"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All purchases",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmMyNDkxNTQ2NjBjMDMyYjcwZDQzZmUiLCJpYXQiOjE2MDY1NzI1ODh9.M6GQCYCEi4TnnGmIpxpZoLUXCxAxEMALuv9BMidQ0ac",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"filters\": {\n        \"brandName\": {\n            \"condition\":\"in\",\n            \"values\":[\"Nike\",\"Reebok\"]\n        },\n        \"category\":{\n            \"condition\":\"in\",\n            \"values\":[\"sports\"]\n        }\n    },\n    \"sort\": {\n        \"totalPurchaseAmount\": \"ASC\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/purchases",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"purchases"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "size",
+							"value": "50",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
