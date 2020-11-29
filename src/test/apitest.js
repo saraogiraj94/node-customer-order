@@ -70,7 +70,6 @@ describe("Customer", () => {
           password: user.password,
         })
         .end((err, res) => {
-          console.log(res.body);
           res.should.have.status(200);
           res.body.should.be.a("object");
           should.exist(res.body.customer._id);
@@ -78,5 +77,85 @@ describe("Customer", () => {
           done();
         });
     });
+  });
+});
+
+describe("Purchase", () => {
+  let token;
+  before((done) => {
+    chai
+      .request(server)
+      .post("/customer/login")
+      .send({
+        email: user.email,
+        password: user.password,
+      })
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.body.should.be.a("object");
+        should.exist(res.body.customer._id);
+        should.exist(res.body.token);
+        token = res.body.token;
+        done();
+      });
+  });
+
+  it("Error creating a new purchase without line item", (done) => {
+    chai
+      .request(server)
+      .post("/purchase")
+      .set("Authorization", token)
+      .send({
+        brandName: "Reebok",
+        totalPurchaseAmount: 600,
+        category: "sports",
+        location: "Sydney",
+      })
+      .end((err, res) => {
+        res.should.have.status(400);
+        should.exist(res.body.errors.items);
+        done();
+      });
+  });
+
+  it("Creating a new purchase ", (done) => {
+    chai
+      .request(server)
+      .post("/purchase")
+      .set("Authorization", token)
+      .send({
+        brandName: "Reebok",
+        totalPurchaseAmount: 600,
+        category: "sports",
+        location: "Sydney",
+        items: [
+          {
+            name: "Shoe",
+            price: 100,
+          },
+          {
+            name: "Socks",
+            price: "50",
+          },
+        ],
+      })
+      .end((err, res) => {
+        res.should.have.status(201);
+        res.body.should.be.a("object");
+        should.exist(res.body._id);
+        done();
+      });
+  });
+
+  it("Fetching list of purchases for the customer", (done) => {
+    chai
+      .request(server)
+      .post("/purchases")
+      .set("Authorization", token)
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.body.should.be.a("array");
+        done();
+      });
   });
 });
