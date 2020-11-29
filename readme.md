@@ -35,8 +35,6 @@ Note**
 
 4) The app does not calculate the total amount of purchase by summing up the purchase amount of individual items of the purchase as it may be possible that purchase amount may differ like may be taxes or discounts are added on total sum. So no such validations or checks are present.
 
-5) In order to calculate brand reward/share we have kept a fixed 1 percent of the total purchase amount of brand, and this in real-world may vary between brand and the calculation of rewards can be more complex.
-
 ---------------------------------------------------------------------------
 
 ## What left to do
@@ -48,5 +46,7 @@ Note**
 3 Adding more sorting parameters. 
 
 4 Creating Indexes in mongodb for faster query response based on the read pattern of usage.
+
+5 New APIs from the data can be created like the total purchase by brand and a reward can be calculated based on that.
 
 5 Dockerizing the application.
