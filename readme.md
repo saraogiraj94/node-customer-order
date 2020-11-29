@@ -13,9 +13,18 @@ Models
 
 2 Clone the repository.
 
+For installing all the dependencies inside package json
 3 npm install
 
+For Starting the app
 4 npm start
+
+For Running Test Cases
+5 npm test
+
+For Running in dev env with the use of nodemon
+6 npm run dev
+
 
 Note**
 
@@ -35,6 +44,8 @@ Note**
 
 4) The app does not calculate the total amount of purchase by summing up the purchase amount of individual items of the purchase as it may be possible that purchase amount may differ like may be taxes or discounts are added on total sum. So no such validations or checks are present.
 
+5) Currently we have assumed all users to be unique and have not kept a check like email should be unique or username can be unique, so with this a user can sign up multiple times with same email.
+
 ---------------------------------------------------------------------------
 
 ## What left to do
@@ -50,3 +61,5 @@ Note**
 5 New APIs from the data can be created like the total purchase by brand and a reward can be calculated based on that.
 
 5 Dockerizing the application.
+
+6 Proper logging with help of modules like winston and request id to trace down each and every request.
