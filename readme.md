@@ -9,7 +9,7 @@ Models
 --------------------------------------------------------
 
 ## Setup steps
-1 Download and Run MongoDB in docker and then set properties like host,port and db in env file, refer to example.env.
+1 Download and Run MongoDB and then set properties like host,port and db in env file, refer to example.env.
 
 2 Clone the repository.
 
@@ -18,8 +18,10 @@ Models
 4 npm start
 
 Note**
-Before installing you need to have Nodejs and npm install.
 
+1 Before installing you need to have Nodejs and npm install.
+
+2 You can use the official docker image of mongodb and start that in docker container by using the command 'docker pull mongo'. 
 
 --------------------------------------------------------
 
@@ -41,4 +43,10 @@ Before installing you need to have Nodejs and npm install.
 
 1 Currently the auth tokens are being saved in mongodb and token is fetched for each api call, which is not the best option, use of session store on caching techniques should be done in order to reduce latency. 
 
-2 Dockerizing the application.
+2 Adding more filter parameters and conditions like $gt,$lt,$eq or more and even cross filters functionality like $or,$and.
+
+3 Adding more sorting parameters. 
+
+4 Creating Indexes in mongodb for faster query response based on the read pattern of usage.
+
+5 Dockerizing the application.
